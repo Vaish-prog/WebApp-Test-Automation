@@ -1,6 +1,6 @@
 # Web App Test Automation Framework
 
-A Python-based test automation framework for testing web applications using Selenium, Pytest, API testing, and SQLite database validation.
+A Python-based test automation framework combining Selenium UI automation, REST API testing, and SQLite database validation using Pytest.
 
 ## Tech Stack
 
@@ -32,63 +32,91 @@ WebApp-Test-Automation/
 │   └── database.py
 │
 ├── .gitignore
-└── README.md
+├── README.md
+└── requirements.txt
 
-Testing Areas
-1. UI Automation
+Key Features
+UI Test Automation
 Selenium WebDriver is used to automate the SauceDemo web application.
-The tests cover:
+The UI test suite covers:
 - Valid login
 - Invalid login
-- Empty username/password validation
+- Empty login validation
+- Missing password validation
 - Navigation to the products page
 - Adding a product to the cart
-- Verifying cart items
-2. API Testing
-API tests are implemented using Python requests.
-The framework tests:
+- Verifying cart contents
+API Test Automation
+REST API testing is implemented using Python requests.
+The API test suite covers:
 - GET user
-- POST/create user
+- Create user
 - Invalid user request
-- PUT/update user
-- DELETE user
-3. Database Testing
+- Update user
+- Delete user
+Database Testing
 SQLite is used for database validation.
 The database test verifies:
 - User existence
 - Username
 - Email
-4. Page Object Model
-The framework follows the Page Object Model design pattern.
+Page Object Model
+The framework uses the Page Object Model to separate page-specific locators and actions from test cases.
 Page classes include:
 - LoginPage
 - ProductsPage
 - CartPage
-This separates page locators and actions from test cases and improves maintainability.
-Running the Tests
-Activate the virtual environment and run:
+This makes the test framework easier to maintain and reuse.
+Pytest Fixtures
+Reusable test setup and browser configuration are handled through Pytest fixtures in conftest.py.
+Test Results
+The complete test suite contains 13 automated tests.
+Test Area	Tests	Result
+API Testing	5	✅ 5 Passed
+UI Testing	7	✅ 7 Passed
+Database Testing	1	✅ 1 Passed
+Total	13	✅ 13 Passed
+
+
+How to Run
+1. Clone the repository
+git clone https://github.com/Vaish-prog/WebApp-Test-Automation.git
+cd WebApp-Test-Automation
+
+2. Create a virtual environment
+python -m venv .venv
+
+3. Activate the virtual environment
+Windows PowerShell:
+.venv\Scripts\Activate.ps1
+
+4. Install dependencies
+pip install -r requirements.txt
+
+5. Run all tests
 pytest tests
 
-To run only the API tests:
+Run individual test suites
+API tests:
 pytest tests/test_api.py
 
-To run only the UI tests:
+UI tests:
 pytest tests/test_login.py
 
-To run database tests:
+Database tests:
 pytest tests/test_database.py
 
-Test Results
-The complete test suite contains:
-- 5 API tests
-- 7 UI tests
-- 1 database test
-Total:
-13 tests
-All tests pass successfully.
-13 passed
-
+Test Application
+The UI automation tests use the SauceDemo application:
+https://www.saucedemo.com/
+Project Highlights
+- Automated web application testing using Selenium
+- REST API validation using Python Requests
+- Database validation using SQLite
+- Page Object Model implementation
+- Reusable Pytest fixtures
+- Automated execution of UI, API, and database tests
+- 13/13 automated tests passing
 Author
 Vaishnavi Singh
 B.Tech CSE (AI & ML)
-
